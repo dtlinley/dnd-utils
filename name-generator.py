@@ -1,6 +1,7 @@
 import random
 import json
 import collections
+import argparse
 
 
 Name = collections.namedtuple('Name', ['text', 'meaning'])
@@ -36,15 +37,26 @@ def choose_affix(affixations):
 #   }
 # }
 #
-def create_name(name_json):
-    prefix = choose_affix(name_json['proper_names']['prefixes'])
-    suffix = choose_affix(name_json['proper_names']['suffixes'])
+def create_name(name_data):
+    prefix = choose_affix(name_data['proper_names']['prefixes'])
+    suffix = choose_affix(name_data['proper_names']['suffixes'])
     name = prefix.text + suffix.text
     meaning = prefix.meaning + " " + suffix.meaning
     return Name(name, meaning)
 
 
-name_file = open("names/dwarf_names.json")
-dwarf_names = json.load(name_file)
-for num in range(0, 10):
-    print create_name(dwarf_names)
+def pretty_print(rows):
+    col_width = max(len(word) for row in rows for word in row) + 1 # padding
+    for row in rows:
+        print "".join(word.ljust(col_width) for word in row)
+
+
+parser = argparse.ArgumentParser(description="Name Generator")
+parser.add_argument("name_file", type=file, help="a file listing the possible components of a name")
+parser.add_argument("-n", dest="num_names", type=int, help="the number of names to create", default=10)
+args = parser.parse_args()
+
+name_data = json.load(args.name_file)
+names = [create_name(name_data) for num in range(0, args.num_names)]
+header = [["Name", "Meaning"]]
+pretty_print(header + names)
