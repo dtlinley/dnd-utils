@@ -84,8 +84,10 @@ def create_name(name_data, gender=None):
     meaning = prefix.meaning + " " + suffix.meaning
     if prefix.gender is not None:
         created_gender = prefix.gender
-    else:
+    elif suffix.gender is not None:
         created_gender = suffix.gender
+    else:
+        created_gender = "Unisex"
     return Name(name, created_gender, meaning)
 
 
