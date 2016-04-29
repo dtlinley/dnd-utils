@@ -44,7 +44,7 @@ def create_name(name_json):
     return Name(name, meaning)
 
 
-name_file = open("dwarf_names.json")
+name_file = open("names/dwarf_names.json")
 dwarf_names = json.load(name_file)
 for num in range(0, 10):
     print create_name(dwarf_names)
