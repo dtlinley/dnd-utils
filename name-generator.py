@@ -5,6 +5,7 @@ import argparse
 
 
 Name = collections.namedtuple('Name', ['text', 'gender', 'meaning'])
+NamePart = collections.namedtuple('NamePart', ['text', 'gender', 'meaning'])
 Affix = collections.namedtuple('Affix', ['text', 'gender', 'meaning'])
 
 
@@ -14,6 +15,14 @@ class NameCreationException(Exception):
 
     def __str__(self):
         return repr(self.value)
+
+
+def combine_meaning(meaning, *other_meanings):
+    m = meaning
+    for o in other_meanings:
+        if o is not None:
+            m = m + " " + o
+    return m
 
 
 def select_optional_property(affix_dict, prop):
@@ -46,13 +55,40 @@ def choose_affix(affixations):
 
 
 # Select all affixations that either match the given gender or are unisex
-def select_proper_affixations(name_data, affix_type, gender=None):
-    affixations = name_data['proper_names'][affix_type]
+def select_affixations(name_data, affix_type, gender=None):
+    affixations = name_data[affix_type]
     if gender is not None:
         affixations = [a for a in affixations if 'gender' not in a or a['gender'] == gender]
     if len(affixations) == 0:
         raise NameCreationException("No " + affix_type + " for gender "+ gender)
     return affixations
+
+
+# Random generate part of a name
+#
+# Expects the data to be in the following format:
+#
+# {
+#   'prefixes': [ { 'options': ['affix1', ...], 'meaning': 'text describing affix', 'gender': 'optional gender' }, ... ]
+#   'suffixes': [ { 'options': ['affix1', ...], 'meaning': 'text describing affix', 'gender': 'optional gender' }, ... ]
+# }
+def create_name_part(name_part_data, gender=None):
+    prefixes = select_affixations(name_part_data, "prefixes", gender)
+    prefix = choose_affix(prefixes)
+    # The suffix gender must be equal the most refined gender between `gender` and `prefix.gender`
+    # in order to avoid mixed-gender names
+    suffix_selection_gender = gender
+    if prefix.gender is not None:
+        suffix_selection_gender = prefix.gender
+    suffixes = select_affixations(name_part_data, "suffixes", suffix_selection_gender)
+    suffix = choose_affix(suffixes)
+    name = prefix.text + suffix.text
+    meaning = combine_meaning(prefix.meaning, suffix.meaning)
+    if prefix.gender is not None:
+        created_gender = prefix.gender
+    else:
+        created_gender = suffix.gender
+    return NamePart(name, created_gender, meaning)
 
 
 # Randomly generate a name from the provided data
@@ -71,24 +107,19 @@ def select_proper_affixations(name_data, affix_type, gender=None):
 # }
 #
 def create_name(name_data, gender=None):
-    prefixes = select_proper_affixations(name_data, "prefixes", gender)
-    prefix = choose_affix(prefixes)
-    # The suffix gender must be equal the most refined gender between `gender` and `prefix.gender`
-    # in order to avoid mixed-gender names
-    suffix_selection_gender = gender
-    if prefix.gender is not None:
-        suffix_selection_gender = prefix.gender
-    suffixes = select_proper_affixations(name_data, "suffixes", suffix_selection_gender)
-    suffix = choose_affix(suffixes)
-    name = prefix.text + suffix.text
-    meaning = prefix.meaning + " " + suffix.meaning
-    if prefix.gender is not None:
-        created_gender = prefix.gender
-    elif suffix.gender is not None:
-        created_gender = suffix.gender
+    first_name = create_name_part(name_data['proper_names'], gender)
+    last_name_selection_gender = gender
+    if first_name.gender is not None:
+        last_name_selection_gender = first_name.gender
+    last_name = create_name_part(name_data['surnames'], last_name_selection_gender)
+    if first_name.gender is not None:
+        created_gender = first_name.gender
+    elif last_name.gender is not None:
+        created_gender = last_name.gender
     else:
         created_gender = "Unisex"
-    return Name(name, created_gender, meaning)
+    meaning = combine_meaning(first_name.meaning, last_name.meaning)
+    return Name(first_name.text + " " + last_name.text, created_gender, meaning)
 
 
 def pretty_print(rows):

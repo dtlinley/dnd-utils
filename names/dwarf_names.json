@@ -157,7 +157,51 @@
   },
 
   "surnames": {
-    "prefixes":[],
-    "suffixes":[]
+    "prefixes":[
+      { "options": ["Oak"] },
+      { "options": ["Iron"] },
+      { "options": ["Steel"] },
+      { "options": ["Bronze"] },
+      { "options": ["Copper"] },
+      { "options": ["Stone"] },
+      { "options": ["Rock"] },
+      { "options": ["Hammer"] },
+      { "options": ["Shield"] },
+      { "options": ["Beard"] },
+      { "options": ["Dire"] },
+      { "options": ["Storm"] },
+      { "options": ["Thunder"] },
+      { "options": ["Tundra"] },
+      { "options": ["Snow"] },
+      { "options": ["Fire"] },
+      { "options": ["Ember"] },
+      { "options": ["Fair"] },
+      { "options": ["Blood"] },
+      { "options": ["Keg"] },
+      { "options": ["Orc"] },
+      { "options": ["Goblin"] }
+    ],
+    "suffixes":[
+      { "options": ["breaker"] },
+      { "options": ["cleaver"] },
+      { "options": ["smasher"] },
+      { "options": ["tapper"] },
+      { "options": ["bearer"] },
+      { "options": ["cutter"] },
+      { "options": ["crusher"] },
+      { "options": ["stomper"] },
+      { "options": ["slasher"] },
+      { "options": ["hunter"] },
+      { "options": ["smith"] },
+      { "options": ["beard"] },
+      { "options": ["hand"] },
+      { "options": ["fist"] },
+      { "options": ["foot"] },
+      { "options": ["brow"] },
+      { "options": ["head"] },
+      { "options": ["blood"] },
+      { "options": ["shield"] },
+      { "options": ["hammer"] }
+    ]
   }
 }
