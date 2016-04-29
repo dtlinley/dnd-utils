@@ -17,8 +17,9 @@ Where NAME_DATA.json is a JSON file providing name information (prefixes, suffix
 #### Sample Usage
 The name generator creates a gender and rough meaning for each name.
 ```
-python name-generator.py --gender female -n 2 names/dwarf_names.json
-Name                          Gender                        Meaning                       
-Jarydd                        female                        Orc/Ugly Queen                
-Therola                       female                        Oath/of Oaths Brewer/Brew/Ale
+python name-generator.py --gender female -n 3 names/dwarf_names.json
+Name                    Gender                  Meaning                 
+Kilja Coppercutter      female                  Proud/Powerful Mistress 
+Oriip Oakbreaker        female                  Gem Pledge/Promise      
+Mordred Goblinsmasher   female                  Brave/Bold Maiden
 ```
