@@ -18,11 +18,14 @@ class NameCreationException(Exception):
 
 
 def combine_meaning(meaning, *other_meanings):
-    m = meaning
-    for o in other_meanings:
-        if o is not None:
-            m = m + " " + o
-    return m
+    combined = meaning
+    for other in other_meanings:
+        if other is not None:
+            if combined is None:
+                combined = other
+            else:
+                combined = combined + " " + other
+    return combined
 
 
 def select_optional_property(affix_dict, prop):
