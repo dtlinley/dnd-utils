@@ -131,8 +131,8 @@ def pretty_print(rows):
         print "".join(word.ljust(col_width) for word in row)
 
 
-parser = argparse.ArgumentParser(description="Name Generator")
-parser.add_argument("name_file", type=file, help="a file listing the possible components of a name")
+parser = argparse.ArgumentParser(description="Dwarf Name Generator")
+parser.add_argument("name_file", type=file, help="a file listing the possible components of dwarven names")
 parser.add_argument("-n", dest="num_names", type=int, help="the number of names to create", default=10)
 gender_help = "limit the name creation to unisex names and gendered names equal to GENDER"
 parser.add_argument("-g", "--gender", dest="gender", help=gender_help, default=None)

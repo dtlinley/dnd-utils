@@ -1,4 +1,20 @@
-# Dwarf Name File Format
+# Dwarf Name Creation
+
+Dwarf names are made by simple appending prefixes to suffixes
+
+## Using the Script
+
+The dwarf name generator creates a gender and rough meaning for each name.
+
+```
+python dwarf-name-generator.py --gender female -n 3 dwarf_names.json
+Name                    Gender                  Meaning                 
+Kilja Coppercutter      female                  Proud/Powerful Mistress 
+Oriip Oakbreaker        female                  Gem Pledge/Promise      
+Mordred Goblinsmasher   female                  Brave/Bold Maiden
+```
+
+## Dwarf Name File Format
 
 ```
 {
