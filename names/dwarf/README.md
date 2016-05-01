@@ -1,4 +1,4 @@
-# Name File Format
+# Dwarf Name File Format
 
 ```
 {
