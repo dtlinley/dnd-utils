@@ -1,9 +1,10 @@
-# Goliath Names Creation
+# Goliath Name Creation
 
-The goliath name generation process is outlined in "Races of Stone" p.g. 72-74. It breaks down into the follow:
-1. First names are built of 2-4 syllables
+The goliath name generation process is outlined in "Races of Stone" p.g. 72-74. It breaks down into the following:
+
+1. First names are built from 2-4 syllables
   - A syllable ending in a consonant must be followed by a joiner. This is to make it sound less harsh
-2. Last names are built of 4-7+ syllables
+2. Last names are built from 4-7+ syllables
   - A syllable ending in a consonant must be followed by a joiner.
   - Cannot end with a consonant. Keep adding syllable until ending in a vowel
 3. Honourifics are built from two words
@@ -11,7 +12,7 @@ The goliath name generation process is outlined in "Races of Stone" p.g. 72-74. 
 
 ## Using the Script
 
-The `goliath-name-generator.py` script must be supplied a JSON file match the goliath file format. Optionally, the script can be told how many names it should create.
+The `goliath-name-generator.py` script must be supplied a JSON file matching the goliath file format. Optionally, the script can be told how many names it should create.
 
 ```
 python goliath-name-generator.py -n 3 goliath_names.json 
