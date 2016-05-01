@@ -1,6 +1,6 @@
 # Dwarf Name Creation
 
-Dwarf names are made by simple appending prefixes to suffixes
+Dwarf names are made by simply appending prefixes to suffixes
 
 ## Using the Script
 
