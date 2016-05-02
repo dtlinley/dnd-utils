@@ -159,9 +159,12 @@
   "surnames": {
     "prefixes":[
       { "options": ["Oak"] },
+      { "options": ["Gold"] },
+      { "options": ["Silver"] },
       { "options": ["Iron"] },
       { "options": ["Steel"] },
       { "options": ["Bronze"] },
+      { "options": ["Brass"] },
       { "options": ["Copper"] },
       { "options": ["Stone"] },
       { "options": ["Rock"] },
@@ -173,11 +176,15 @@
       { "options": ["Thunder"] },
       { "options": ["Tundra"] },
       { "options": ["Snow"] },
+      { "options": ["Frost"] },
       { "options": ["Fire"] },
       { "options": ["Ember"] },
       { "options": ["Fair"] },
+      { "options": ["Brawn"] },
+      { "options": ["Battle"] },
       { "options": ["Blood"] },
       { "options": ["Keg"] },
+      { "options": ["Ram"] },
       { "options": ["Orc"] },
       { "options": ["Goblin"] }
     ],
@@ -203,6 +210,8 @@
       { "options": ["head"] },
       { "options": ["blood"] },
       { "options": ["shield"] },
+      { "options": ["forge"] },
+      { "options": ["anvil"] },
       { "options": ["hammer"] }
     ]
   }
