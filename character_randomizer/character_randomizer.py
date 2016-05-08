@@ -1,10 +1,12 @@
 import random
-import human_traits
+import copy
+
 import dragonborn_traits
 import dwarf_traits
 import elf_traits
 import gnome_traits
 import halfling_traits
+import human_traits
 
 def pickByWeight(list, value):
     if (value <= list[0]['weight'] or len(list) is 1):
@@ -13,13 +15,13 @@ def pickByWeight(list, value):
 
 def normalize(list):
     sum = 0.0
-    copy = list[:]
-    for item in copy:
+    listcopy = copy.deepcopy(list)
+    for item in listcopy:
         sum = sum + item['weight']
-    for item in copy:
+    for item in listcopy:
         pre_normal = item['weight']
         item['weight'] = pre_normal / sum
-    return copy
+    return listcopy
 
 def pickTrait(list):
     trait = pickByWeight(normalize(list), random.random())
