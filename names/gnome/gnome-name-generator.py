@@ -30,10 +30,13 @@ def create_gnome_name(fragments, size, joiners, endings):
         fragment = choice['fragment']
         chosen_fragments.append(fragment)
         meanings = choice['meanings']
-        chosen_meanings = chosen_meanings + meanings
+        meaning = choose(meanings)
+        chosen_meanings.append(meaning)
     chosen_fragments = list(intersperse(chosen_fragments, lambda: choose(joiners)))
     chosen_fragments.append(choose(endings))
-    return ("".join(chosen_fragments), chosen_meanings)
+    name = "".join(chosen_fragments).capitalize().encode('utf-8')
+    meaning = " ".join(chosen_meanings).encode('utf-8')
+    return (name, meaning)
 
 
 def create_full_gnome_name(fragments, nicknames, joiners, big_endings, little_endings):
@@ -47,10 +50,10 @@ def create_full_gnome_name(fragments, nicknames, joiners, big_endings, little_en
     # Before: Only gnomes with two-fragment names got a nickname
     # Now: Every gnome has the chance of getting a nickname
     num_nicknames = random.randint(0, 2)
-    nickname = " ".join([choose(nicknames) for _ in range(num_nicknames)])
+    nickname = " ".join([choose(nicknames) for _ in range(num_nicknames)]).encode('utf-8')
     name = creation[0]
     meanings = creation[1]
-    return (name.capitalize().encode('utf-8'), meanings, nickname.encode('utf-8'))
+    return (name, meanings, nickname)
 
 
 def pretty_print(rows):
@@ -62,7 +65,7 @@ def pretty_print(rows):
 parser = argparse.ArgumentParser(description="Gnome Name Generator")
 parser.add_argument("name_file", type=file, help="a file listing the components of Gnome names")
 parser.add_argument("-n", dest="num_names", type=int, help="the number of names to create", default=10)
-parser.add_argument("-g", "--gender", dest="gender", help="the gender of the produced names", default="male")
+parser.add_argument("-g", "--gender", dest="gender", help="the gender of the produced names", default=None)
 args = parser.parse_args()
 
 name_data = json.load(args.name_file)
@@ -71,8 +74,24 @@ nicknames = name_data['nicknames']
 joiners = name_data['joiners']
 male_big_endings = name_data['big_name_endings']['male']
 male_little_endings = name_data['small_name_endings']['male']
-for _ in range(5):
-    print create_full_gnome_name(fragments, nicknames, joiners, male_big_endings, male_little_endings)
-#names = [create_gnome_name(fragments, nicknames) for num in range(0, args.num_names)]
-#header = [["Name", "Meaning", "Nickname", "Gender"]]
-#pretty_print(header + names)
+female_big_endings = name_data['big_name_endings']['female']
+female_little_endings = name_data['small_name_endings']['female']
+if args.gender == "male":
+    genders = ["male" for _ in range(args.num_names)]
+elif args.gender == "female":
+    genders = ["female" for _ in range(args.num_names)]
+else:
+    genders = [choose(["male", "female"]) for _ in range(args.num_names)]
+names = []
+for gender in genders:
+    if gender == "male":
+        little_endings = male_little_endings
+        big_endings = male_big_endings
+    else:
+        little_endings = female_little_endings
+        big_endings = female_big_endings
+    creation = create_full_gnome_name(fragments, nicknames, joiners, big_endings, little_endings)
+    names.append(GnomeName(creation[0], creation[1], creation[2], gender))
+
+header = [["Name", "Meaning", "Nickname", "Gender"]]
+pretty_print(header + names)
