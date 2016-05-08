@@ -16,11 +16,32 @@ The gnome name generation process is outlined in "Races of Stone" p.g. 49-50:
 The `gnome-name-generator.py` script must be supplied a JSON file matching the gnome file format. Optionally, the script can be told how many names it should create and the gender of the created names.
 
 ```
-python gnome-name-generator.py -n 3 --gender male gnome_names.json 
-
-TODO Sample Output
+python gnome-name-generator.py -n 3 --gender female gnome_names.json 
+Name               Meaning            Nickname           Gender             
+Enneflana          Husband/Wife Earth Ale                female             
+Callada            Cousin                                female             
+Gaergaerae         Defence Defence    Sun Sun            female
 ```
 
 ## Gnome Name File Format
 
-TODO
+```
+{
+  "population": "the group of gnomes these names will work for. e.g. all gnome, forest gnomes, etc.",
+  "sources": ["where these names were found"],
+  "names":[
+    { "fragment": "name fragment. Normally a syllable",     "meanings": ["list of possible meanings"]},
+    ...
+  ],
+  "joiners": ["strings inserted in-between name fragments"],
+  "small_name_endings": {
+    "male": ["the possible strings appended to the end of a one-fragment male name"],
+    "female": ["the possible strings appended to the end of a one-fragment female name"]
+  },
+  "big_name_endings": {
+    "male": ["the possible strings appended to the end of a 2-or-more-fragment male name"],
+    "female": ["the possible strings appended to the end of a 2-or-more fragment female name"]
+  },
+  "nicknames":["a list of possible nicknames"]
+}
+```
