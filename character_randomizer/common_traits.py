@@ -41,5 +41,5 @@ skin_colours = [
 # @param name {String} The attribute value that is being searched for
 # @param list {List of dictionaries} The list to search for a dictionary with a matching attribute value
 def find_trait(name, list):
-    matching = list.filter(lambda x: x['attribute'] == name)
+    matching = filter(lambda x: x['attribute'] == name, list)
     return matching[0]
