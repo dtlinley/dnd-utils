@@ -24,6 +24,8 @@ physical_characteristics = [
     {'attribute': 'muscled', 'weight': 1, 'subtraits': []},
     {'attribute': 'handsome', 'weight': 0.5, 'subtraits': []},
     {'attribute': 'ugly', 'weight': 0.5, 'subtraits': []},
+    {'attribute': 'tatooed', 'weight': 0.2, 'subtraits': []},
+    {'attribute': 'scarred', 'weight': 0.2, 'subtraits': []},
 ]
 
 skin_colours = [

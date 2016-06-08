@@ -8,6 +8,7 @@ import gnome_traits
 import halfling_traits
 import human_traits
 import half_elf_traits
+import half_orc_traits
 
 def pickByWeight(list, value):
     if (value <= list[0]['weight'] or len(list) is 1):
@@ -39,7 +40,7 @@ def createCharacter():
         {'attribute': 'elf', 'weight': 4, 'subtraits': elf_traits.traits},
         {'attribute': 'gnome', 'weight': 2.5, 'subtraits': gnome_traits.traits},
         {'attribute': 'half-elf', 'weight': 6, 'subtraits': half_elf_traits.traits},
-        {'attribute': 'half-orc', 'weight': 3, 'subtraits': human_traits.traits},
+        {'attribute': 'half-orc', 'weight': 3, 'subtraits': half_orc_traits.traits},
         {'attribute': 'halfling', 'weight': 2, 'subtraits': halfling_traits.traits},
         {'attribute': 'human', 'weight': 10, 'subtraits': human_traits.traits},
         {'attribute': 'tiefling', 'weight': 1, 'subtraits': human_traits.traits},
