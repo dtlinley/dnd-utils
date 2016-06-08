@@ -34,5 +34,4 @@ subraces = [
 
 traits = [
     subraces,
-    common_traits.physical_characteristics,
 ]
