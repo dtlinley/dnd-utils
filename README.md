@@ -4,7 +4,7 @@
 
 Creates a random character with gender, race, hair colour and a physical attribute (e.g. old, young, tall, short.)
 
-`python character_randomizer.py`
+`python character_randomizer/character_randomizer.py`
 
 ## Name Generation
 
