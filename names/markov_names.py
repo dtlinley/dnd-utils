@@ -2,6 +2,9 @@ import random
 
 
 class Categorical(object):
+    """A Categorical represents a distribution of observations, where the
+    likelihood of any given observation defaults to `prior` 
+    """
 
     def __init__(self, support, prior):
         self.counts = {x: prior for x in support}
@@ -12,6 +15,10 @@ class Categorical(object):
         self.total += count
 
     def sample(self, dice=random):
+        """Randomly sample one of the elements of `support` given the
+        cumulative distribution function represented by this Categorical's
+        observations
+        """
         sample = dice.uniform(0, self.total)
         for event, count in self.counts.iteritems():
             if sample <= count:
@@ -23,7 +30,22 @@ class Categorical(object):
 
 
 class MarkovModel(object):
+    """A higher-order Markov Model with Dirichlet Prior and Katz Back-off.
+      
+       A Markov model is a stochastic model used to model randomly changing systems where
+       it is assumed that future states depend only on the current state.
 
+       A Markov model of order `m` will consider the past `m` states when determining the
+       value of the next state. When there is no history of order `m`, the model will
+       attempt to find one of order `m-1`. This is refered to as Katz Back-off. This
+       implementation assumes a Good-Turing weight of 1 and a threshold of 0, meaning they
+       can be ignored.
+
+       It is likely that the corpus used to train a Markov model will not be large enough
+       to capture all of the relationships that exist, especially when using higher-order
+       models. To correct for this, a Direchlet prior is used to apply additive smoothing
+       to the ditribution of observations for any given prefix.
+    """ 
     def __init__(self, support, order, prior, boundary_symbol=None):
         self.support = set(support)
         self.support.add(boundary_symbol)
