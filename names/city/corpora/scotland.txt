@@ -1,0 +1,233 @@
+Aberdeen
+Dundee
+Edinburgh
+Glasgow
+Glasgow
+Inverurie
+Kintore
+Ballater
+Ellon
+Fraserburgh
+Huntly
+Old Meldrum
+Peterhead
+Rattray
+Rosehearty
+Turriff
+Angus
+Arbroath
+Brechin
+Forfar
+Montrose
+Broughty Ferry
+Carnoustie
+Kirriemuir
+Monifieth
+Campbeltown
+Inveraray
+Dunoon
+Lochgilphead
+Oban
+Tobermory
+Ayr
+Irvine
+Ardrossan
+Cumnock and Holmhead
+Darvel
+Galston
+Girvan
+Kilmarnock
+Kilwinning
+Largs
+Maybole
+Newmilns and Greenholm
+Prestwick
+Saltcoats
+Stevenston
+Stewarton
+Troon
+Banff
+Cullen
+Aberchirder
+Aberlour
+Buckie
+Dufftown
+Findochty
+Keith
+Macduff
+Portknockie
+Portsoy
+Lauder
+Coldstream
+Duns
+Eyemouth
+Rothesay
+Millport
+Wick
+Thurso
+Alloa
+Alva
+Dollar
+Tillicoultry
+Annan
+Dumfries
+Lochmaben
+Sanquhar
+Langholm
+Lockerbie
+Moffat
+Dumbarton
+Bearsden
+Clydebank
+Cove and Kilcreggan
+Cumbernauld
+Helensburgh
+Kirkintilloch
+Milngavie
+Dunbar
+Haddington
+North Berwick
+Cockenzie and Port Seton
+East Linton
+Prestonpans
+Tranent
+Anstruther Easter
+Anstruther Wester
+Auchtermuchty
+Burntisland
+Crail
+Culross
+Cupar
+Dunfermline
+Dysart
+Earlsferry
+Elie and Earlsferry
+Falkland
+Inverkeithing
+Kilrenny
+Kincardine
+Kinghorn
+Kirkcaldy
+Newburgh
+Pittenweem
+St Andrews
+Buckhaven and Methil
+Cowdenbeath
+Elie
+Ladybank
+Leslie
+Leven
+Lochgelly
+Markinch
+Newport-on-Tay
+St. Monance
+Tayport
+Inverness
+Fort William
+Kingussie
+Inverbervie
+Banchory
+Laurencekirk
+Stonehaven
+Kinross
+Kirkcudbright
+New Galloway
+Castle Douglas
+Dalbeattie
+Gatehouse of Fleet
+Maxwelltown
+Lanark
+Rutherglen
+Airdrie
+Biggar
+Bishopbriggs
+Coatbridge
+East Kilbride
+Hamilton
+Hillhead
+Kinning Park
+Maryhill
+Motherwell
+Motherwell and Wishaw
+Partick
+Wishaw
+Bonnyrigg
+Bonnyrigg and Lasswade
+Dalkeith
+Lasswade
+Leith
+Loanhead
+Musselburgh
+Penicuik
+Portobello
+Morayshire
+Elginshire
+Elgin
+Forres
+Burghead
+Grantown-on-Spey
+Lossiemouth and Branderburgh
+Rothes
+Nairn
+Kirkwall
+Stromness
+Peebles
+Innerleithen
+Auchterarder
+Perth
+Aberfeldy
+Abernethy
+Alyth
+Blairgowrie
+Blairgowrie and Rattray
+Callander
+Coupar Angus
+Crieff
+Doune
+Dunblane
+Pitlochry
+Rattray
+Renfrew
+Barrhead
+Crawfurdsdyke
+Gourock
+Govan
+Greenock
+None
+Johnstone
+Paisley
+Pollokshaws
+Port Glasgow
+Dingwall
+Fortrose
+Tain
+Cromarty
+Invergordon
+Stornoway
+Jedburgh
+Hawick
+Kelso
+Melrose
+Selkirk
+Galashiels
+Stirling
+Bridge of Allan
+Denny and Dunipace
+Falkirk
+Burgh of regality 1646
+Grangemouth
+Kilsyth
+Dornoch
+West Lothian
+Linlithgowshire
+Linlithgow
+Queensferry
+Armadale
+Bathgate
+Bo'ness
+Whitburn
+Stranraer
+Whithorn
+Wigtown
+Newton Stewart
+Lerwick
