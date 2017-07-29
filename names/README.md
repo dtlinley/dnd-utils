@@ -3,7 +3,9 @@ Data and tools for the creation of names
 
 ## Markov Name Generation
 
-Randomly generate names using a markov process. The simplest case is generating names from a single corpus
+Randomly generate names using a markov process. Starter models can be created by running the `build` script.
+
+The simplest case is generating names from a single corpus
 ```
 python markov_model_builder.py -o 5 city/corpora/american.txt > city/models/american.mrkv
 python markov_name_generator.py -n 15 city/models/american.mrkv
@@ -28,7 +30,7 @@ It is more common to want names generated from many different sources. In this c
 ```
 python markov_name_generator.py -n 20 \
 > city/models/american.mrkv \
-> city/models/england.mrkv 
+> city/models/english.mrkv 
 Kalamazoo
 Great Torringham
 Bodmin
@@ -50,6 +52,7 @@ Belper
 Bulwell
 Neosho
 ```
+
 A more advanced (and somewhat chaotic) approach is to combine corpora into one model
 ```
 python markov_model_builder.py -o 4 \
