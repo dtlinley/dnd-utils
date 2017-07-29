@@ -24,6 +24,32 @@ Biddeford
 Homestead
 ```
 
+It is more common to want names generated from many different sources. In this case, generating names from multiple models at the same time
+```
+python markov_name_generator.py -n 20 \
+> city/models/american.mrkv \
+> city/models/england.mrkv 
+Kalamazoo
+Great Torringham
+Bodmin
+Lubec
+Burgess Hill
+Jarrow
+Benton
+Epworth
+Burnley
+Guildford-upon Trentwood
+Manitowoc
+Brandon
+Hobart
+Newport
+Crediton
+Michigan City
+Evansville
+Belper
+Bulwell
+Neosho
+```
 A more advanced (and somewhat chaotic) approach is to combine corpora into one model
 ```
 python markov_model_builder.py -o 4 \
