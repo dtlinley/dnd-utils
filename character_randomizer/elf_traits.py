@@ -1,5 +1,6 @@
 import common_traits
 import copy
+import elf_names
 
 hair_colours = copy.deepcopy(common_traits.white_hair_colours)
 hair_colours.extend([
@@ -51,4 +52,10 @@ subraces = [
 traits = [
     subraces,
     common_traits.physical_characteristics,
+    {
+        'androgynous': elf_names.female_names + elf_names.male_names,
+        'female': elf_names.female_names,
+        'male': elf_names.male_names,
+    },
+    elf_names.family_names
 ]

@@ -1,5 +1,6 @@
 import common_traits
 import copy
+import tiefling_names
 
 skin_colours = copy.deepcopy(common_traits.skin_colours)
 skin_colours.extend([
@@ -32,4 +33,10 @@ for skin in skin_colours:
 traits = [
     skin_colours,
     common_traits.physical_characteristics,
+    {
+        'androgynous': tiefling_names.female_names + tiefling_names.male_names,
+        'female': tiefling_names.female_names,
+        'male': tiefling_names.male_names,
+    },
+    tiefling_names.virtue_names
 ]

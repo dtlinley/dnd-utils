@@ -26,11 +26,19 @@ def normalize(list):
         item['weight'] = pre_normal / sum
     return listcopy
 
-def pickTrait(list):
+def pickTrait(list, previousTraits):
+    if isinstance(list, dict):
+        for trait in list.keys():
+            if trait in previousTraits:
+                list = list[trait]
+                break
     trait = pickByWeight(normalize(list), random.random())
     traits = [trait]
     for sub in trait['subtraits']:
-        traits.extend(pickTrait(sub))
+        traits.extend(pickTrait(
+            sub,
+            map(lambda x: x['attribute'], traits) + previousTraits
+        ))
     return traits
 
 
@@ -47,11 +55,11 @@ def createCharacter():
         {'attribute': 'tiefling', 'weight': 1, 'subtraits': tiefling_traits.traits},
     ]
     genders = [
-        {'attribute': 'male', 'weight': 500, 'subtraits': [races]},
-        {'attribute': 'female', 'weight': 500, 'subtraits': [races]},
+        {'attribute': 'male', 'weight': 50, 'subtraits': [races]},
+        {'attribute': 'female', 'weight': 50, 'subtraits': [races]},
         {'attribute': 'androgynous', 'weight': 1, 'subtraits': [races]},
     ]
 
-    return map(lambda x: x['attribute'], pickTrait(genders))
+    return map(lambda x: x['attribute'], pickTrait(genders, []))
 
 print createCharacter()

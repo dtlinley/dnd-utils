@@ -1,5 +1,6 @@
 import common_traits
 import copy
+import dwarf_names
 
 hair_colours = copy.deepcopy(common_traits.hair_colours)
 hair_colours.append({'attribute': 'red-haired', 'weight': 0.5, 'subtraits': []})
@@ -34,4 +35,10 @@ subraces = [
 
 traits = [
     subraces,
+    {
+        'androgynous': dwarf_names.female_names + dwarf_names.male_names,
+        'female': dwarf_names.female_names,
+        'male': dwarf_names.male_names,
+    },
+    dwarf_names.clan_names
 ]
