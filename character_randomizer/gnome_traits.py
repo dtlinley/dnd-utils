@@ -3,7 +3,7 @@ import gnome_names
 
 subraces = [
     {'attribute': 'forest gnome', 'weight': 1, 'subtraits': []},
-    {'attribute': 'rock gnome', 'weight': 1, 'subtraits': []},
+    {'attribute': 'rock gnome', 'weight': 2, 'subtraits': []},
     {'attribute': 'deep gnome', 'weight': 0.01, 'subtraits': []},
 ]
 

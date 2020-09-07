@@ -9,7 +9,7 @@ hair_colours = [
 white_hair_colours = copy.deepcopy(hair_colours)
 white_hair_colours.extend([
     {'attribute': 'blonde', 'weight': 1, 'subtraits': []},
-    {'attribute': 'red hair', 'weight': 0.6, 'subtraits': []},
+    {'attribute': 'red hair', 'weight': 0.4, 'subtraits': []},
 ])
 
 physical_characteristics = [
