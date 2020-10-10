@@ -122,7 +122,7 @@ family_names = [
     {'attribute': 'Gobblefirn', 'weight': 1, 'subtraits': []},
     {'attribute': 'Gummen', 'weight': 1, 'subtraits': []},
     {'attribute': 'Horcusporcus', 'weight': 1, 'subtraits': []},
-    {'attribute': 'Huplebumple', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Humplebumple', 'weight': 1, 'subtraits': []},
     {'attribute': 'Ironhide', 'weight': 1, 'subtraits': []},
     {'attribute': 'Leffery', 'weight': 1, 'subtraits': []},
     {'attribute': 'Lingenhall', 'weight': 1, 'subtraits': []},
