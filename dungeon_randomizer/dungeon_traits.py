@@ -15,13 +15,26 @@ doors = [
     {'attribute': 'Secret door, locked', 'weight': 1, 'subtraits': []},
 ]
 
+exit_locations = [
+    {'attribute': 'Opposite entrance', 'weight': 7, 'subtraits': []},
+    {'attribute': 'Left of entrance', 'weight': 5, 'subtraits': []},
+    {'attribute': 'Right of entrance', 'weight': 5, 'subtraits': []},
+    {'attribute': 'Next to entrance', 'weight': 3, 'subtraits': []},
+]
+
 chamber_exits = [
-    {'attribute': 'Door', 'weight': 1, 'subtraits': [doors]},
-    {'attribute': 'Corridor, 10 ft long', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Door', 'weight': 1, 'subtraits': [doors, exit_locations]},
+    {'attribute': 'Corridor, 10 ft long', 'weight': 1, 'subtraits': [exit_locations]},
+]
+
+tiny_chamber_exits = [
+    {'attribute': 'No exits', 'weight': 10, 'subtraits': []},
+    {'attribute': 'One exit', 'weight': 5, 'subtraits': [chamber_exits]},
+    {'attribute': 'Two exits', 'weight': 2, 'subtraits': [chamber_exits, chamber_exits]},
 ]
 
 small_chamber_exits = [
-    {'attribute': 'None', 'weight': 5, 'subtraits': []},
+    {'attribute': 'No exits', 'weight': 5, 'subtraits': []},
     {'attribute': 'One exit', 'weight': 6, 'subtraits': [chamber_exits]},
     {'attribute': 'Two exits', 'weight': 4, 'subtraits': [chamber_exits, chamber_exits]},
     {'attribute': 'Three exits', 'weight': 3, 'subtraits': [chamber_exits, chamber_exits, chamber_exits]},
@@ -39,12 +52,14 @@ large_chamber_exits = [
 ]
 
 chamber_contents = [
-    {'attribute': 'Monster (dominant inhabitant)', 'weight': 16, 'subtraits': []},
-    {'attribute': 'Monster (dominant inhabitant) with treasure', 'weight': 14, 'subtraits': []},
+    {'attribute': 'Monster (dominant inhabitant)', 'weight': 24, 'subtraits': []},
+    {'attribute': 'Monster (dominant inhabitant) with treasure', 'weight': 18, 'subtraits': []},
     {'attribute': 'Monster (pet or allied creature)', 'weight': 10, 'subtraits': []},
     {'attribute': 'Monster (pet or allied creature) guarding treasure', 'weight': 6, 'subtraits': []},
     {'attribute': 'Monster (random creature)', 'weight': 9, 'subtraits': []},
     {'attribute': 'Monster (random creature) with treasure', 'weight': 8, 'subtraits': []},
+    {'attribute': 'Monster (opposing faction)', 'weight': 9, 'subtraits': []},
+    {'attribute': 'Monster (opposing faction) with treasure', 'weight': 8, 'subtraits': []},
     {'attribute': 'Dungeon hazard with incidental treasure', 'weight': 8, 'subtraits': []},
     {'attribute': 'Obstacle', 'weight': 5, 'subtraits': []},
     {'attribute': 'Trap', 'weight': 10, 'subtraits': []},
@@ -56,19 +71,22 @@ chamber_contents = [
 ]
 
 chambers = [
-    {'attribute': 'Square, 20x20 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
-    {'attribute': 'Square, 30x30 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
+    {'attribute': 'Square, 20x20 ft', 'weight': 4, 'subtraits': [chamber_contents, tiny_chamber_exits]},
+    {'attribute': 'Square, 30x30 ft', 'weight': 4, 'subtraits': [chamber_contents, small_chamber_exits]},
     {'attribute': 'Square, 40x40 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
-    {'attribute': 'Rectangle, 15x30 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
-    {'attribute': 'Rectangle, 20x30 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
-    {'attribute': 'Rectangle, 30x40 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
-    {'attribute': 'Rectangle, 30x60 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
-    {'attribute': 'Rectangle, 50x80 ft', 'weight': 1, 'subtraits': [chamber_contents, large_chamber_exits]},
-    {'attribute': 'Circle, 30 ft diameter', 'weight': 1, 'subtraits': [chamber_contents, small_chamber_exits]},
-    {'attribute': 'Circle, 50 ft diameter', 'weight': 1, 'subtraits': [chamber_contents, large_chamber_exits]},
+    {'attribute': 'Rectangle, 15x30 ft', 'weight': 3, 'subtraits': [chamber_contents, tiny_chamber_exits]},
+    {'attribute': 'Rectangle, 20x40 ft', 'weight': 2, 'subtraits': [chamber_contents, tiny_chamber_exits]},
+    {'attribute': 'Rectangle, 30x45 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
+    {'attribute': 'Rectangle, 30x60 ft', 'weight': 2, 'subtraits': [chamber_contents, large_chamber_exits]},
+    {'attribute': 'Rectangle, 50x80 ft', 'weight': 0, 'subtraits': [chamber_contents, large_chamber_exits]},
+    {'attribute': 'Circle, 30 ft diameter', 'weight': 0, 'subtraits': [chamber_contents, small_chamber_exits]},
+    {'attribute': 'Circle, 45 ft diameter', 'weight': 1, 'subtraits': [chamber_contents, large_chamber_exits]},
     {'attribute': 'Octagon, 40x40 ft', 'weight':0, 'subtraits': [chamber_contents, large_chamber_exits]},
     {'attribute': 'Octagon, 60x60 ft', 'weight': 0, 'subtraits': [chamber_contents, large_chamber_exits]},
     {'attribute': 'Trapezoid, 40x60 ft', 'weight': 0, 'subtraits': [chamber_contents, large_chamber_exits]},
+    {'attribute': 'Square, 15x15 ft', 'weight': 2, 'subtraits': [chamber_contents, tiny_chamber_exits]},
+    {'attribute': 'Trapezoid, 45x30 ft', 'weight': 2, 'subtraits': [chamber_contents, small_chamber_exits]},
+    {'attribute': 'Diamond, 45x45 ft', 'weight': 1, 'subtraits': [chamber_contents, small_chamber_exits]},
 ]
 
 passage_widths = [
@@ -126,11 +144,13 @@ chamber_exits[1]['subtraits'] = [passages]
 starting_areas = [
     {'attribute': 'Square, 20x20 ft; passage on each wall', 'weight': 1, 'subtraits': [passages, passages, passages]},
     {'attribute': 'Square, 20x20 ft; door on two walls, passage on third wall', 'weight': 1, 'subtraits': [doors, doors, passages]},
+    {'attribute': 'Square, 30x30 ft; door on two walls, passage on third wall', 'weight': 1, 'subtraits': [doors, doors, passages]},
     {'attribute': 'Square, 40x40 ft; doors on three walls', 'weight': 1, 'subtraits': [doors, doors, doors]},
-    {'attribute': 'Rectangle, 80x20 ft, with row of pillars down the middle; two passages leading from each long wall, doors on each short wall', 'weight': 1, 'subtraits': [passages, passages, doors]},
+    {'attribute': 'Rectangle, 20x40 ft, with row of pillars down the middle; two passages leading from each long wall, doors on each short wall', 'weight': 1, 'subtraits': [passages, passages, doors]},
+    {'attribute': 'Rectangle, 30x45 ft, with row of pillars down the middle; two passages leading from each long wall, doors on each short wall', 'weight': 1, 'subtraits': [passages, passages, doors]},
     {'attribute': 'Rectangle, 20x40 ft; passage on each wall', 'weight': 1, 'subtraits': [passages, passages, passages]},
-    {'attribute': 'Circle, 40 ft diameter; one passage at each cardinal direction', 'weight': 1, 'subtraits': [passages, passages, passages]},
-    {'attribute': 'Circle, 40 ft diameter; one passage in each cardinal direction; well in middle of room', 'weight': 1, 'subtraits': [passages, passages, passages]},
+    {'attribute': 'Circle, 40 ft diameter; one passage at each cardinal direction', 'weight': 0, 'subtraits': [passages, passages, passages]},
+    {'attribute': 'Circle, 40 ft diameter; one passage in each cardinal direction; well in middle of room', 'weight': 0, 'subtraits': [passages, passages, passages]},
     {'attribute': 'Square, 20x20 ft; door on two walls, passage on third wall, secret door on fourth wall', 'weight': 1, 'subtraits': [passages, doors, doors]},
     {'attribute': 'Passage, 10 ft wide; T intersection', 'weight': 1, 'subtraits': [passages, passages]},
     {'attribute': 'Passage, 10 ft wide; four-way intersection', 'weight': 1, 'subtraits': [passages, passages, passages]},
@@ -140,6 +160,6 @@ areas_beyond_doors = [
     {'attribute': 'Passage extending 10 ft, then T intersection extending 10 ft to the right and left', 'weight': 2, 'subtraits': [passages, passages]},
     {'attribute': 'Passage 20 ft straight ahead', 'weight': 6, 'subtraits': [passages]},
     {'attribute': 'Chamber', 'weight': 10, 'subtraits': [chambers]},
-    {'attribute': 'Stairs', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Stairs', 'weight': 0.1, 'subtraits': []},
     {'attribute': 'False door with trap', 'weight': 1, 'subtraits': []},
 ]

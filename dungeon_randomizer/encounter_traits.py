@@ -1,0 +1,16 @@
+doors = [
+    {'attribute': 'Wooden', 'weight': 12, 'subtraits': []},
+    {'attribute': 'Wooden, barred', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Wooden, locked', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Stone', 'weight': 8, 'subtraits': []},
+    {'attribute': 'Stone, barred', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Stone, locked', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Iron', 'weight': 4, 'subtraits': []},
+    {'attribute': 'Iron, barred', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Iron, locked', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Portcullis', 'weight': 2, 'subtraits': []},
+    {'attribute': 'Portcullis, locked in place', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Secret door', 'weight': 2, 'subtraits': []},
+    {'attribute': 'Secret door, barred', 'weight': 1, 'subtraits': []},
+    {'attribute': 'Secret door, locked', 'weight': 1, 'subtraits': []},
+]

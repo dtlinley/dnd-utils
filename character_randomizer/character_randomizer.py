@@ -10,6 +10,7 @@ import human_traits
 import half_elf_traits
 import half_orc_traits
 import tiefling_traits
+import personality_traits
 
 def pickByWeight(list, value):
     if (value <= list[0]['weight'] or len(list) is 1):
@@ -54,10 +55,12 @@ def createCharacter():
         {'attribute': 'human', 'weight': 10, 'subtraits': human_traits.traits},
         {'attribute': 'tiefling', 'weight': 1, 'subtraits': tiefling_traits.traits},
     ]
+    common_subtraits = [races]
+    common_subtraits.extend(personality_traits.traits)
     genders = [
-        {'attribute': 'male', 'weight': 50, 'subtraits': [races]},
-        {'attribute': 'female', 'weight': 50, 'subtraits': [races]},
-        {'attribute': 'androgynous', 'weight': 1, 'subtraits': [races]},
+        {'attribute': 'male', 'weight': 50, 'subtraits': common_subtraits},
+        {'attribute': 'female', 'weight': 50, 'subtraits': common_subtraits},
+        {'attribute': 'androgynous', 'weight': 1, 'subtraits': common_subtraits},
     ]
 
     return map(lambda x: x['attribute'], pickTrait(genders, []))
